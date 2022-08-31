@@ -2,6 +2,7 @@
 const express = require('express');
 const shortid = require('shortid');
 const { getFlights, getFlight, addFlight, deleteFlight } = require('./queries');
+const { validateFlight } = require('./utils');
 const PORT = 3000;
 const app = express();
 const cors = require('cors');
@@ -30,22 +31,7 @@ app.get('/api/flight/:id', async (req, res) => {
 app.post('/api/flight', async (req, res) => {
 	const newFlight = req.body;
 	newFlight.id = shortid.generate();
-	if (
-		!newFlight.name ||
-		newFlight.name.length < 3 ||
-		!newFlight.origin ||
-		newFlight.origin.length < 3 ||
-		!newFlight.destination ||
-		newFlight.destination.length < 3 ||
-		!newFlight.departuretime ||
-		newFlight.departuretime.length < 10 ||
-		!newFlight.arrivaltime ||
-		newFlight.arrivaltime.length < 10 ||
-		!newFlight.airline ||
-		newFlight.airline.length < 3 ||
-		!newFlight.terminal ||
-		newFlight.terminal.length < 3
-	) {
+	if (validateFlight(newFlight)) {
 		res.send('invalid properties');
 	} else {
 		await addFlight(newFlight);
