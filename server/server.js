@@ -28,33 +28,25 @@ app.get('/api/flight/:id', async (req, res) => {
 });
 
 app.post('/api/flight', async (req, res) => {
-	const newFlight = {
-		id: shortid.generate(),
-		name: req.body.name,
-		origin: req.body.origin,
-		destination: req.body.destination,
-		departuretime: req.body.departuretime,
-		arrivaltime: req.body.arrivaltime,
-		airline: req.body.airline,
-		terminal: req.body.terminal,
-	};
+	const newFlight = req.body;
+	newFlight.id = shortid.generate();
 	if (
 		!newFlight.name ||
-		newFlight.name === '' ||
+		newFlight.name.length < 3 ||
 		!newFlight.origin ||
-		newFlight.origin === '' ||
+		newFlight.origin.length < 3 ||
 		!newFlight.destination ||
-		newFlight.destination === '' ||
+		newFlight.destination.length < 3 ||
 		!newFlight.departuretime ||
-		newFlight.departuretime === '' ||
+		newFlight.departuretime.length < 10 ||
 		!newFlight.arrivaltime ||
-		newFlight.arrivaltime === '' ||
+		newFlight.arrivaltime.length < 10 ||
 		!newFlight.airline ||
-		newFlight.airline === '' ||
+		newFlight.airline.length < 3 ||
 		!newFlight.terminal ||
-		newFlight.terminal === ''
+		newFlight.terminal.length < 3
 	) {
-		res.status.send('invalid properties');
+		res.send('invalid properties');
 	} else {
 		await addFlight(newFlight);
 		res.send(newFlight);
