@@ -12,8 +12,8 @@ function App() {
     <div className="App">
       <SiteHeader links = {{Home:"/",About:"/About"}}/>
       <Routes>
-        {/* <Route path='/' element={<Home/>}/>
-        <Route path='/About' element={<About/>}/> */}
+        <Route path='/' element={<Home/>}/>
+        <Route path='/About' element={<About/>}/>
       </Routes> 
       <SiteFooter/>
     </div>
