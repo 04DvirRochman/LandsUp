@@ -22,10 +22,23 @@ id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
 	password VARCHAR NOT NULL,
         createdat TIMESTAMP NOT NULL
 );
+INSERT INTO t_users 
+VALUES('5y9a00','dan','pizza',Current_timestamp);
+INSERT INTO t_users 
+VALUES('kjsdaofjo23','guy','basketball',Current_timestamp);
+INSERT INTO t_users 
+VALUES('kutfw2534','dvir','TORGA',Current_timestamp);
 
-CREATE TABLE t_favorites (
+CREATE TABLE t_subscriptions (
     userid VARCHAR NOT NULL REFERENCES t_users(id),
 	flightID VARCHAR NOT NULL REFERENCES t_flights(id),
 	createdat TIMESTAMP NOT NULL
 );
-
+INSERT INTO t_subscriptions
+VALUES('5y9a00','chingceraje',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('5y9a00','g25343',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('kjsdaofjo23','g25343',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('kutfw2534','hrteshgte',Current_timestamp);
