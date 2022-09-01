@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
 import FlightList from '../cmps/FlightList'
-import { getAll } from '../services.js'
+import { getFlightsFromDB } from '../services/flightService';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 
 
 export default class Home extends Component {
-	constructor() {
-		super();
-		this.state = {
-			items: [],
-			loadingTasks: false,
-		};
-	}
+
 
     constructor() {
         super();
@@ -25,7 +19,7 @@ export default class Home extends Component {
 
     componentDidMount() {
         this.setState({ loadingFlights: true })
-        getAll().then(allFlights => {
+        getFlightsFromDB().then(allFlights => {
             this.setState({ flights: allFlights })
         }).finally(() => this.setState({ loadingFlights: false }))
     }
