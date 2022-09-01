@@ -6,7 +6,7 @@ async function connection() {
 		host: 'localhost',
 		database: 'postgres',
 		password: 'Aa123456',
-		port: 5433,
+		port: 5432,
 	});
 	try {
 		return pool;
