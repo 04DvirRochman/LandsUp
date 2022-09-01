@@ -9,3 +9,17 @@ id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
 	terminal smallint NOT NULL
 	
 );
+
+CREATE TABLE t_users (
+id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
+	name VARCHAR NOT NULL,
+	password VARCHAR NOT NULL,
+        createdat TIMESTAMP NOT NULL
+);
+
+CREATE TABLE t_favorites (
+    userid VARCHAR NOT NULL REFERENCES t_users(id),
+	flightID VARCHAR NOT NULL REFERENCES t_flights(id),
+	createdat TIMESTAMP NOT NULL
+);
+
