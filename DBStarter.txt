@@ -1,0 +1,11 @@
+CREATE TABLE t_flights (
+id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
+	name VARCHAR NOT NULL,
+	origin VARCHAR NOT NULL,
+	destination VARCHAR NOT NULL,
+	departuretime TIMESTAMP NOT NULL,
+	arrivaltime TIMESTAMP NOT NULL,
+	airline VARCHAR NOT NULL,
+	terminal smallint NOT NULL
+	
+);
