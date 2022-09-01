@@ -1,0 +1,17 @@
+CREATE TABLE t_flights (
+id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
+	name VARCHAR NOT NULL,
+	origin VARCHAR NOT NULL,
+	destination VARCHAR NOT NULL,
+	departuretime TIMESTAMP NOT NULL,
+	arrivaltime TIMESTAMP NOT NULL,
+	airline VARCHAR NOT NULL,
+	terminal smallint NOT NULL
+	
+);
+INSERT INTO t_flights
+VALUES ('g25343','TW351', 'Taipei','Tel Aviv','2022-11-05 4:00','2022-11-05 20:00', 'Taiwan Airlines', 9);
+INSERT INTO t_flights
+VALUES ('hrteshgte','LOT921', 'Warsaw','Tel Aviv','2022-11-20 7:00','2022-11-20 10:00', 'LOT Polish Airlines', 5);
+INSERT INTO t_flights
+VALUES ('chingceraje','HK492', 'Tel Aviv','Hong Kong','2022-10-01 14:00','2022-10-02 10:00', 'Hong Kong Airlines', 3);

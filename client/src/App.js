@@ -11,12 +11,12 @@ import About from './pages/About';
 function App() {
   return (
     <div className="App">
-      <SiteHeader />
+      <SiteHeader links = {{Home:"/",About:"/About"}}/>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/About' element={<About />} />
-      </Routes>
-      <SiteFooter />
+        <Route path='/' element={<Home/>}/>
+        <Route path='/About' element={<About/>}/>
+      </Routes> 
+      <SiteFooter/>
     </div>
   );
 }

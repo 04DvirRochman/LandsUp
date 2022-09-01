@@ -6,6 +6,13 @@ import Collapse from 'react-bootstrap/Collapse';
 
 
 export default class Home extends Component {
+	constructor() {
+		super();
+		this.state = {
+			items: [],
+			loadingTasks: false,
+		};
+	}
 
     constructor() {
         super();
