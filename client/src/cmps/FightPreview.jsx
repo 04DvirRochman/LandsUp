@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
+import FlightDetails from './FlightDetails';
+import Button from 'react-bootstrap/esm/Button';
+import Collapse from 'react-bootstrap/esm/Collapse';
+import Accordion from 'react-bootstrap/esm/Accordion';
+import AccordionItem from 'react-bootstrap/esm/AccordionItem';
 
 export default class FightPreview extends Component {
+
   render() {
+    const { flight, eventKey } = this.props;
+    let flightValues = Object.values(flight);
     return (
-      <div>FightPreview</div>
+      <AccordionItem eventKey={eventKey}>
+        <Accordion.Header>
+        {flightValues.map((flightValue, index) => { if (index !== 0) { return <h4 key={index} className='col tableText'>{flightValue}</h4> } })}
+        </Accordion.Header>
+        <FlightDetails flight={flight} />
+      </AccordionItem>
     )
   }
+
 }
