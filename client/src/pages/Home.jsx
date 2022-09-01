@@ -20,7 +20,12 @@ export default class Home extends Component {
 			.finally(() => this.setState({ loadingTasks: false }));
 	}
 
+    filter=()=>{
+
+    }
+
+
 	render() {
-		return <div>hi</div>;
+		return <div>{JSON.stringify(this.state.tasks)}</div>;
 	}
 }
