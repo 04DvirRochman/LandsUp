@@ -5,19 +5,17 @@ import Collapse from 'react-bootstrap/esm/Collapse';
 import Accordion from 'react-bootstrap/esm/Accordion';
 import AccordionItem from 'react-bootstrap/esm/AccordionItem';
 
-export default class FightPreview extends Component {
+export default function FightPreview(props) {
 
-  render() {
-    const { flight, eventKey } = this.props;
-    let flightValues = Object.values(flight);
-    return (
-      <AccordionItem eventKey={eventKey}>
-        <Accordion.Header>
+  const { flight, eventKey } = props;
+  let flightValues = Object.values(flight);
+  return (
+    <AccordionItem eventKey={eventKey}>
+      <Accordion.Header>
         {flightValues.map((flightValue, index) => { if (index !== 0) { return <h4 key={index} className='col tableText'>{flightValue}</h4> } })}
-        </Accordion.Header>
-        <FlightDetails flight={flight} />
-      </AccordionItem>
-    )
-  }
+      </Accordion.Header>
+      <FlightDetails flight={flight} />
+    </AccordionItem>
+  )
 
 }

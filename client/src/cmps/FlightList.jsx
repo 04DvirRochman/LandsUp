@@ -9,13 +9,13 @@ export default function FlightList(props) {
 
     return (
         <div className='container-sm mt-5'>
-            
+
             <div className='bg-dark px-4'>
                 <div className='row '>
                     {flightKeys.map((flightValue, index) => { if (index !== 0) { return <h4 key={index} className='col text-light text-start'>{flightValue}</h4> } })}
                     <div className='col-1'></div>
                 </div>
-                
+
             </div>
 
             <Accordion defaultActiveKey="0">
