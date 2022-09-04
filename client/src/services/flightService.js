@@ -1,7 +1,16 @@
-const APIURL = 'http://localhost:3000';
-const getFlightsFromDB = async () => {
+import APIURL from './utils';
+const getFlightsFromDB = async (filter) => {
+	let params = new URLSearchParams();
+	if(filter){
+		if(filter.origin){
+			params.set('origin',filter.origin);
+		}
+		else if(filter.destination){
+			params.set('destination',filter.destination);
+		}
+	}
 	try {
-		const result = await fetch(`${APIURL}/api/flights`);
+		const result = await fetch(`${APIURL}/api/flights?${params}`);
 		const arr = await result.json();
 		return arr;
 	} catch (err) {
@@ -18,11 +27,13 @@ const getFlightFromDB = async (id) => {
 };
 
 const addFlightToDB = async (flight) => {
-	await fetch(`${APIURL}/api/flight`, {
-		method: 'POST',
-		body: JSON.stringify(flight),
-		headers: { 'content-type': 'application/json' },
-	});
+	try {
+		await fetch(`${APIURL}/api/flight`, {
+			method: 'POST',
+			body: JSON.stringify(flight),
+			headers: { 'content-type': 'application/json' },
+		});
+	} catch (err) {}
 };
 
 const removeFlightFromDB = async (id) => {
