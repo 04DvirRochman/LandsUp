@@ -1,4 +1,4 @@
-const APIURL = 'http://localhost:3000';
+import APIURL from './utils';
 const getUserSubs = async (userid) => {
 	try {
 		const result = await fetch(`${APIURL}/api/subscriptions?userid=${userid}`);

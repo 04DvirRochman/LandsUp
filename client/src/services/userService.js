@@ -1,4 +1,4 @@
-const APIURL = 'http://localhost:3000';
+import APIURL from './utils';
 const login = async (name, password) => {
 	try {
 		const result = await fetch(`${APIURL}/api/user?name=${name}&password=${password}`);
@@ -16,5 +16,3 @@ const signup = async (name, password) => {
 		});
 	} catch (err) {}
 };
-
-signup('ejrsgtj', 'ejhuiaerhg');
