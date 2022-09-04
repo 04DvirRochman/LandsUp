@@ -12,7 +12,8 @@ export default class Home extends Component {
         this.state = {
             flights: [],
             loadingFlights: false,
-            filter: {}
+            filter: {},
+            filteredFlights:[]
         };
     }
 
@@ -29,7 +30,7 @@ export default class Home extends Component {
                     flight.arrivaltime = organizeDate(new Date(flight.arrivaltime));
                     return flight;
                 });
-                this.setState({ flights: allFlights });
+                this.setState({ flights: allFlights ,filteredFlights: allFlights});
             })
             .finally(() => this.setState({ loadingFlights: false }));
     }
@@ -45,12 +46,11 @@ export default class Home extends Component {
     onSearch = (filter) => {
         let filteredFlights = this.state.flights;
         if(!filter){
-            this.loadFlights();
+            this.setState({filteredFlights: this.state.flights});
             return;
         }
-        console.log(filteredFlights);
         filteredFlights = filteredFlights.filter((flight)=>( this.isFilterFound(flight.origin,filter) || this.isFilterFound(flight.destination,filter)))
-        this.setState({flights: filteredFlights});
+        this.setState({filteredFlights: filteredFlights});
     }
 
     isFilterFound = (value,filter) =>{
@@ -61,14 +61,14 @@ export default class Home extends Component {
     }
 
     render() {
-        const { flights, loadingFlights } = this.state;
+        const { flights, loadingFlights ,filteredFlights} = this.state;
         console.log(flights);
 
         return (
             <div className='container-sm mt-5'>
                 <FlightFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} flights={flights} />
                 <FlightList
-                    flights={flights}
+                    flights={filteredFlights}
                     openFilghtDetails={this.openFilghtDetails}
                     loadingFlights={loadingFlights}
                 />
