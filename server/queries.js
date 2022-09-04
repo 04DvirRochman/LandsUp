@@ -20,6 +20,13 @@ const getFlight = async (id) => {
 	return await sendQuery({ text: 'SELECT * FROM t_flights WHERE id=$1', values: [id] });
 };
 
+const getSubscription = async (userid, flightid) => {
+	return await sendQuery({
+		text: 'SELECT * FROM t_subscriptions WHERE userid=$1 AND flightid=$2',
+		values: [userid, flightid],
+	});
+};
+
 const deleteFlight = async (id) => {
 	return await sendQuery({ text: 'DELETE FROM t_flights WHERE id=$1', values: [id] });
 };
@@ -53,18 +60,19 @@ const getUserSubs = async (userid) => {
 		values: [userid],
 	});
 };
-const createNewUser = async (id, name, password) => {
+const createNewUser = async (user) => {
 	return await sendQuery({
 		text: 'INSERT INTO t_users VALUES($1,$2,$3,CURRENT_TIMESTAMP)',
-		values: [id, name, password],
+		values: [user.id, user.name, user.password],
 	});
 };
-const createSubscription = async (userid, flightid) => {
+const createSubscription = async (newSubscription) => {
 	return await sendQuery({
 		text: 'INSERT INTO t_subscriptions VALUES($1,$2,CURRENT_TIMESTAMP)',
-		values: [userid, flightid],
+		values: [newSubscription.userid, newSubscription.flightid],
 	});
 };
+
 const deleteSubscription = async (userid, flightid) => {
 	return await sendQuery({
 		text: 'DELETE FROM t_subscriptions WHERE userid=$1 AND flightid=$2',
@@ -77,4 +85,12 @@ module.exports = {
 	getFlight,
 	deleteFlight,
 	addFlight,
+	getUserID,
+	getUserSubs,
+	createNewUser,
+	createSubscription,
+	deleteSubscription,
+	getSubscription,
 };
+
+getSubscription('yhiej','hrteshgte').then(console.log)
