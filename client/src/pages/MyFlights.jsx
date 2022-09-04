@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import FlightList from '../cmps/FlightList';
 import { getFlightsFromDB } from '../services/flightService';
 import organizeDate from '../services/utills';
+import {getSubscriptionsFromDB} from '../services/userService';
 
-export default class Home extends Component {
-	constructor() {
-		super();
+export default class MyFlights extends Component {
+
+
+    constructor(props) {
+		super(props);
 		this.state = {
 			flights: [],
 			loadingFlights: false,
+            connectedUser: props.connectedUser
 		};
 	}
 
