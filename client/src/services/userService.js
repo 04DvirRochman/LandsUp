@@ -1,5 +1,5 @@
 import APIURL from './utils';
-const login = async (name, password) => {
+export const login = async (name, password) => {
 	try {
 		const result = await fetch(`${APIURL}/api/user?name=${name}&password=${password}`);
 		const userId = await result.json();
@@ -7,7 +7,7 @@ const login = async (name, password) => {
 	} catch (err) {}
 };
 
-const signup = async (name, password) => {
+export const signup = async (name, password) => {
 	try {
 		await fetch(`${APIURL}/api/user`, {
 			method: 'POST',
