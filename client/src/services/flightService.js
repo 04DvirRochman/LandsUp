@@ -1,7 +1,16 @@
 import APIURL from './utils';
-const getFlightsFromDB = async () => {
+const getFlightsFromDB = async (filter) => {
+	let params = new URLSearchParams();
+	if(filter){
+		if(filter.origin){
+			params.set('origin',filter.origin);
+		}
+		else if(filter.destination){
+			params.set('destination',filter.destination);
+		}
+	}
 	try {
-		const result = await fetch(`${APIURL}/api/flights`);
+		const result = await fetch(`${APIURL}/api/flights?${params}`);
 		const arr = await result.json();
 		return arr;
 	} catch (err) {

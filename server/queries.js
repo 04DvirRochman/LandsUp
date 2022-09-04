@@ -12,8 +12,18 @@ const sendQuery = async (query) => {
 	}
 };
 
-const getFlights = async () => {
-	return await sendQuery({ text: 'SELECT * FROM t_flights' });
+const getFlights = async (filter) => {
+	let text = "SELECT * FROM t_flights";
+	let values = [];
+	if(filter.origin){
+		values.push(filter.origin);
+		text += ' WHERE origin=$1'
+	}
+	else if(filter.destination){
+		values.push(filter.destination);
+		text += ' WHERE destination=$1'
+	}
+	return await sendQuery({ text: text , values: values});
 };
 
 const getFlight = async (id) => {
