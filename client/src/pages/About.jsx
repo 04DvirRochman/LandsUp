@@ -13,8 +13,8 @@ const personalInfo = [
     name: "Dan",
   },
   {
-    img: "https://ibasketball.co.il/wp-content/uploads/2020/10/S93008-99x128.jpg",
-    text: "my poop boddy . com",
+    img: "https://c.tenor.com/M0BNebVAQxoAAAAC/sqid-sq.gif",
+    text: "my poop boddy.com",
     name: "Dvir",
   },
 ];

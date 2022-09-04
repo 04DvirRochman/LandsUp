@@ -1,0 +1,18 @@
+.input{
+    width: 80%;
+    margin : 7%;
+}
+
+
+/* make input stay same size if big screen */
+
+.box{
+    width: 50%;
+    height: inherit;
+    border: 2px solid black;
+    padding: 1%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    margin: auto;
+    justify-content: center;
+}

@@ -5,7 +5,7 @@ async function connection() {
 		user: 'postgres',
 		host: 'localhost',
 		database: 'postgres',
-		password: 'Aa123456',
+		password: 'pgsql10',
 		port: 5432,
 	});
 	try {
