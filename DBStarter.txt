@@ -15,3 +15,30 @@ INSERT INTO t_flights
 VALUES ('hrteshgte','LOT921', 'Warsaw','Tel Aviv','2022-11-20 7:00','2022-11-20 10:00', 'LOT Polish Airlines', 5);
 INSERT INTO t_flights
 VALUES ('chingceraje','HK492', 'Tel Aviv','Hong Kong','2022-10-01 14:00','2022-10-02 10:00', 'Hong Kong Airlines', 3);
+
+CREATE TABLE t_users (
+id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
+	name VARCHAR UNIQUE NOT NULL,
+	password VARCHAR NOT NULL,
+        createdat TIMESTAMP NOT NULL
+);
+INSERT INTO t_users 
+VALUES('5y9a00','dan','pizza',Current_timestamp);
+INSERT INTO t_users 
+VALUES('kjsdaofjo23','guy','basketball',Current_timestamp);
+INSERT INTO t_users 
+VALUES('kutfw2534','dvir','TORGA',Current_timestamp);
+
+CREATE TABLE t_subscriptions (
+    userid VARCHAR NOT NULL REFERENCES t_users(id),
+	flightID VARCHAR NOT NULL REFERENCES t_flights(id),
+	createdat TIMESTAMP NOT NULL
+);
+INSERT INTO t_subscriptions
+VALUES('5y9a00','chingceraje',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('5y9a00','g25343',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('kjsdaofjo23','g25343',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('kutfw2534','hrteshgte',Current_timestamp);

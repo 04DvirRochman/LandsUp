@@ -18,6 +18,17 @@ const validateFlight = (newFlight) => {
 	);
 };
 
+const validateUser = (newUser) => {
+	return (
+		!newUser.name ||
+		!newUser.password ||
+		!newUser.name.length > 3 ||
+		!newUser.password.length > 3 ||
+		!isNaN(newUser.password)
+	);
+};
+
 module.exports = {
 	validateFlight,
+	validateUser,
 };
