@@ -16,7 +16,7 @@ const getFlights = async () => {
   return await sendQuery({ text: "SELECT * FROM t_flights" });
 };
 
-const orderByFlights = async (orderBy, order) => {
+const Or = async (orderBy, order) => {
   return await sendQuery({
     text: "SELECT * FROM t_flights ORDER BY $1 $2",
     values: [orderBy, order],

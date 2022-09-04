@@ -13,3 +13,15 @@
     padding-left : 0px;
     padding-right : 0px;
 }
+
+.logo-text {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color : white;
+    -webkit-filter: drop-shadow(.1em 0px 0px black); /* new style here */
+    filter: drop-shadow(.1em 0px 0px black);  /* new style here */
+    font-size: 70px;
+  }
