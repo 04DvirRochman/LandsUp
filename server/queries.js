@@ -92,5 +92,3 @@ module.exports = {
 	deleteSubscription,
 	getSubscription,
 };
-
-getSubscription('yhiej','hrteshgte').then(console.log)

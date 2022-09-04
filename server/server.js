@@ -51,7 +51,7 @@ app.get('/api/user', async (req, res) => {
 	}
 });
 
-app.get('/api/subscription', async (req, res) => {
+app.get('/api/subscriptions', async (req, res) => {
 	const userid = req.query.userid;
 	const flightIds = await getUserSubs(userid);
 	if (flightIds.length === 0) {
