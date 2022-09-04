@@ -18,7 +18,7 @@ VALUES ('chingceraje','HK492', 'Tel Aviv','Hong Kong','2022-10-01 14:00','2022-1
 
 CREATE TABLE t_users (
 id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
-	name VARCHAR NOT NULL,
+	name VARCHAR UNIQUE NOT NULL,
 	password VARCHAR NOT NULL,
         createdat TIMESTAMP NOT NULL
 );
