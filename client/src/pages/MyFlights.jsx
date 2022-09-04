@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import FlightList from '../cmps/FlightList';
-import { getFlightsFromDB } from '../services/flightService';
 import organizeDate from '../services/utills';
-import {getSubscriptionsFromDB} from '../services/userService';
+import {getUserSubsFromDB} from '../services/subscriptionService';
 
 export default class MyFlights extends Component {
 
@@ -18,7 +17,7 @@ export default class MyFlights extends Component {
 
 	componentDidMount() {
 		this.setState({ loadingFlights: true });
-		getFlightsFromDB()
+		getUserSubsFromDB(this.state.connectedUser)
 			.then((allFlights) => {
 				allFlights = allFlights.map((flight) => {
 					flight.departuretime = organizeDate(new Date(flight.departuretime));
