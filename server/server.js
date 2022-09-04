@@ -10,7 +10,8 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/api/flights', async (req, res) => {
-	const flights = await getFlights();
+	const filter = req.query;
+	const flights = await getFlights(filter);
 	if (!flights || !flights.length) {
 		res.status(404).send('Flights do not exist');
 	} else {

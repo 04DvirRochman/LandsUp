@@ -8,7 +8,7 @@ export default function FlightList(props) {
     let flightKeys = Object.keys(flights[0]);
 
     return (
-        <div className='container-sm mt-5'>
+        <div>
 
             <div className='bg-dark px-4'>
                 <div className='row '>
