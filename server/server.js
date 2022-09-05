@@ -1,6 +1,7 @@
-"use strict";
-const express = require("express");
-const shortid = require("shortid");
+'use strict';
+const express = require('express');
+const shortid = require('shortid');
+
 const {
   getFlights,
   getFlight,
@@ -17,9 +18,13 @@ const {
 const { validateFlight, validateUser } = require("./utils");
 const PORT = 3000;
 const app = express();
-const cors = require("cors");
+const cors = require('cors');
 app.use(express.json());
 app.use(cors());
+const path = require('path');
+const pathToClient = path.join(__dirname, '..', 'client/build');
+
+app.use(express.static(pathToClient));
 
 app.get("/api/flights", async (req, res) => {
   const filter = req.query;
@@ -113,6 +118,10 @@ app.delete("/api/subscription", async (req, res) => {
     await deleteSubscription(userid, flightid);
     res.send(subscription[0]);
   }
+});
+
+app.get('*', function (req, res) {
+	res.sendFile(path.join(pathToClient, '/index.html'));
 });
 
 app.listen(PORT, function (err) {

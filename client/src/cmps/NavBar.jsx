@@ -1,41 +1,25 @@
-// import React, { Component } from 'react'
+import React, { Component } from 'react'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link, NavLink } from "react-router-dom";
 
-
-// export default class SiteHeader extends Component {
-//     constructor(props) {
-// 		super(props);
-// 		this.state = {
-// 			links: props.links,
-// 			currSite: props.currSite,
-// 		};
-// 	}
-
-//     render() {
-
-//         return(
-
-
-            
-//         <div className="d-flex flex-row text-light bg-dark display-6 text-padding">
-//         <div className="col-3">
-//           <Link to={this.state.links.Home} className="nav-link active  ">
-//             <h4 >Home</h4>
-//           </Link>
-//         </div>
-//         <div className="col-3">
-//           <h4>My Flights</h4>
-//         </div>
-//         <div className="col-3">
-//           <Link to={this.state.links.About} className="nav-link active  ">
-//             <h4>About</h4>
-//           </Link>
-//         </div>
-//         <div className="col-3">
-//           <h4>Login</h4>
-//         </div>
-//       </div>
-//         )
-//     }
-
-
-// }
+export default function NavBar (props){
+    const {links} = props;
+    return (
+        <Navbar className="navbar-dark" bg="dark" expand="lg">
+        <Container>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <NavLink className="nav-link" to={links.Home}>Home</NavLink>
+              <NavLink className="nav-link" to={links.MyFlights}>My Flights</NavLink>
+              <NavLink className="nav-link" to={links.About}>About</NavLink>
+              <NavLink className="nav-link" to={links.Login}>Login</NavLink>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    )
+}

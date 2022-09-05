@@ -17,15 +17,15 @@ class LoginInner extends Component {
     this.setState({ input: input });
   };
 
-  signIn = () => {
-    signup(this.state.input.userName, this.state.input.password)
-      .then((user) => {
+  signUp = () => {
+    signup(this.state.input.userName, this.state.input.password).then(
+      (user) => {
         if (user.id) {
           this.props.setConnectedUser(user.id);
           this.props.navigation(this.props.homeLink);
         }
-      })
-      .catch((err) => this.setState({ error: "invalid params" }));
+      }
+    ).catch((err) => this.setState({ error: "invalid params" }));
   };
 
   login = () => {
@@ -35,10 +35,8 @@ class LoginInner extends Component {
           this.props.setConnectedUser(user.id);
           this.props.navigation(this.props.homeLink);
         }
-      })
-      .catch((error) =>
-        this.setState({ error: "user name or password is invalid" })
-      );
+      }
+    ).catch((error) => this.setState({ error: "user name or password is invalid" }))
   };
 
   desplayError() {
@@ -57,7 +55,7 @@ class LoginInner extends Component {
           inputData={this.state.input}
         />
         <div className="mt-2 mb-2">
-          <Button className="mx-2" onClick={this.signIn}>
+          <Button className="mx-2" onClick={this.signUp}>
             Sign Up
           </Button>
           <Button className="mx-2" onClick={this.login}>
