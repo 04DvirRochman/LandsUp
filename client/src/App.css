@@ -41,6 +41,10 @@
   background-color: #282c34;
 }
 
+.scrollable{
+  overflow: scroll;
+}
+
 
 @keyframes App-logo-spin {
   from {

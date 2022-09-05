@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import FightPreview from './FightPreview'
 import Accordion from 'react-bootstrap/esm/Accordion';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 export default function FlightList(props) {
 
@@ -13,7 +15,6 @@ export default function FlightList(props) {
 
     return (
         <div>
-
             <div className='bg-dark px-4'>
                 <div className='row '>
                 <h4 className='col text-light text-start'>name</h4>
@@ -30,7 +31,9 @@ export default function FlightList(props) {
 
             <Accordion defaultActiveKey="0">
                 {
-                        (!loadingFlights && flights.length > 0) ? (flights.map((flight, index) => <FightPreview flight={flight} key={flight.id} eventKey={index} />)): <div></div>
+                        (!loadingFlights && flights.length > 0) ? (flights.map((flight, index) => <FightPreview flight={flight} key={flight.id} eventKey={index} />)): <Spinner className='m-4' animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
                 }
             </Accordion>
         </div>
