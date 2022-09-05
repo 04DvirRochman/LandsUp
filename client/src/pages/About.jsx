@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PersonalInfoList from "../cmps/PersonalInfoList";
-
+import Dan from "../images/Dan.jpg"
+import Dvir from "../images/Dvir.jpg"
 const personalInfo = [
   {
     img: "https://ibasketball.co.il/wp-content/uploads/2020/10/S93008-99x128.jpg",
@@ -8,12 +9,12 @@ const personalInfo = [
     name: "Guy",
   },
   {
-    img: "https://ibasketball.co.il/wp-content/uploads/2020/10/S93008-99x128.jpg",
+    img: Dan,
     text: "my name is dan and i love tea ",
     name: "Dan",
   },
   {
-    img: "https://c.tenor.com/M0BNebVAQxoAAAAC/sqid-sq.gif",
+    img: Dvir,
     text: "my poop boddy.com",
     name: "Dvir",
   },
@@ -21,6 +22,8 @@ const personalInfo = [
 
 export default class About extends Component {
   render() {
-    return <PersonalInfoList info={personalInfo} />;
+    return <div>
+    <PersonalInfoList info={personalInfo} />
+    </div>;
   }
 }
