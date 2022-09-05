@@ -34,7 +34,7 @@ export default class MainWebsite extends Component {
       <div>
         <SiteHeader links={links} />
         <Routes>
-          <Route path={links.Home} element={<Home />} />
+          <Route path={links.Home} element={<Home connectedUser={connectedUser}/>} />
           <Route path={links.About} element={<About />} />
           <Route
             path={links.Login}

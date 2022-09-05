@@ -3,34 +3,65 @@ const { connection } = require("./database");
 const Pool = require("pg").Pool;
 
 const sendQuery = async (query) => {
-  try {
-    const con = await connection();
-    const result = await con.query(query);
-    return result.rows;
-  } catch (err) {
-    console.log(err);
-  }
+	try {
+		const con = await connection();
+		const result = await con.query(query);
+		return result.rows;
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 const getFlights = async (filter) => {
 	let text = "SELECT * FROM t_flights";
 	let values = [];
-	if(filter.origin){
+	if (filter.origin) {
 		values.push(filter.origin);
 		text += ' WHERE origin=$1'
 	}
-	else if(filter.destination){
+	else if (filter.destination) {
 		values.push(filter.destination);
 		text += ' WHERE destination=$1'
 	}
-	return await sendQuery({ text: text , values: values});
+	return await sendQuery({ text: text, values: values });
+};
+
+const getFlightsByIds = async (ids, filter) => {
+	let text = "SELECT * FROM t_flights";
+	text += ' WHERE (';
+	if (ids && ids.length > 0) {
+		
+		ids.forEach((element, index) => {
+			if (index !== 0) {
+				text += ' OR ';
+			}
+			text += ` id='${element}' `;
+		});
+	}
+	else{
+		text += `id=' '`;
+	}
+	text += ') ';
+	let values = [];
+	if (filter) {
+		if (filter.origin) {
+			values.push(filter.origin);
+			text += ' AND origin=$1'
+		}
+		else if (filter.destination) {
+			values.push(filter.destination);
+			text += ' AND destination=$1'
+		}
+	}
+	console.log(text);
+	return await sendQuery({ text: text, values: values });
 };
 
 const getFlight = async (id) => {
-  return await sendQuery({
-    text: "SELECT * FROM t_flights WHERE id=$1",
-    values: [id],
-  });
+	return await sendQuery({
+		text: "SELECT * FROM t_flights WHERE id=$1",
+		values: [id],
+	});
 };
 
 const getSubscription = async (userid, flightid) => {
@@ -74,7 +105,6 @@ const getUserSubs = async (userid) => {
 	});
 };
 const createNewUser = async (user) => {
-	console.log(user);
 	return await sendQuery({
 		text: 'INSERT INTO t_users VALUES($1,$2,$3,CURRENT_TIMESTAMP)',
 		values: [user.id, user.name, user.password],
@@ -105,4 +135,5 @@ module.exports = {
 	createSubscription,
 	deleteSubscription,
 	getSubscription,
+	getFlightsByIds
 };

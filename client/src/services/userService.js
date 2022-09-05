@@ -4,9 +4,11 @@ export const login = async (name, password) => {
     const result = await fetch(
       `${APIURL}/api/user?name=${name}&password=${password}`
     );
-    const userId = await result.json();
-    return userId.id;
-  } catch (err) {}
+    const user = await result.json();
+    return user;
+  } catch (err) {
+    throw err;
+  }
 };
 
 export const signup = async (name, password) => {
@@ -19,6 +21,6 @@ export const signup = async (name, password) => {
     const newUser = await result.json();
     return newUser;
   } catch (err) {
-	console.log("error " + err );
+    throw err;
   }
 };
