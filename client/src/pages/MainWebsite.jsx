@@ -8,17 +8,20 @@ import About from "../pages/About";
 import MyFlights from "../pages/MyFlights";
 import Login from "./Login";
 
+const links = {
+  Home: "/",
+  About: "/About",
+  MyFlights: "/MyFlights",
+  Login: "/Login",
+};
+
+const defaultUser = "000000"
+
 export default class MainWebsite extends Component {
   constructor() {
     super();
     this.state = {
-      connectedUser: "000000",
-      links: {
-        Home: "/",
-        About: "/About",
-        MyFlights: "/MyFlights",
-        Login: "/Login",
-      },
+      connectedUser: defaultUser,
     };
   }
 
@@ -27,18 +30,24 @@ export default class MainWebsite extends Component {
   };
 
   render() {
-    const links = this.state.links;
-
     const { connectedUser } = this.state;
     return (
       <div>
         <SiteHeader links={links} />
         <Routes>
-          <Route path={links.Home} element={<Home connectedUser={connectedUser}/>} />
+          <Route
+            path={links.Home}
+            element={<Home connectedUser={connectedUser} />}
+          />
           <Route path={links.About} element={<About />} />
           <Route
             path={links.Login}
-            element={<Login setConnectedUser={this.setConnectedUser} homeLink = {this.state.links.Home} />}
+            element={
+              <Login
+                setConnectedUser={this.setConnectedUser}
+                homeLink={this.state.links.Home}
+              />
+            }
           />
           <Route
             path={links.MyFlights}

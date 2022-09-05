@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FlightList from '../cmps/FlightList';
 import { getFlightsFromDB } from '../services/flightService';
-import organizeDate from '../services/utills';
+import {organizeDate} from '../services/utils';
 import FlightFilter from '../cmps/FlightFilter';
 import { getUserSubs,createSubscription,deleteSubscription } from '../services/subscriptionService';
 
