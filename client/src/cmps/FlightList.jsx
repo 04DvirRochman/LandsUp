@@ -17,13 +17,13 @@ export default function FlightList(props) {
         <div>
             <div className='bg-dark px-4'>
                 <div className='row '>
-                    <h4 className='col text-light text-start'>name</h4>
-                    <h4 className='col text-light text-start'>origin</h4>
-                    <h4 className='col text-light text-start'>destination</h4>
-                    <h4 className='col text-light text-start'>departure</h4>
-                    <h4 className='col text-light text-start'>arrival</h4>
-                    <h4 className='col text-light text-start'>airline</h4>
-                    <h4 className='col text-light text-start'>terminal</h4>
+                    <h5 className='col text-light text-start'>code</h5>
+                    <h5 className='col text-light text-start'>origin</h5>
+                    <h5 className='col text-light text-start'>destination</h5>
+                    <h5 className='col text-light text-start'>departure</h5>
+                    <h5 className='col text-light text-start'>arrival</h5>
+                    <h5 className='col text-light text-start'>airline</h5>
+                    <h5 className='col text-light text-start'>terminal</h5>
                     <div className='col-1'></div>
                 </div>
 
@@ -37,7 +37,7 @@ export default function FlightList(props) {
                         </Spinner> :
                         (flights.length > 0) ?
                             flights.map((flight, index) => <FightPreview onClickSubscribe={onClickSubscribe} subscriptions={subscriptions} flight={flight} key={index} eventKey={index} />)
-                            : <h4 className='m-4'>No flights has found</h4>
+                            : <h5 className='m-4'>No flights has found</h5>
                 }
             </Accordion>
         </div>
