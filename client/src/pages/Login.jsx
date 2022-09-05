@@ -20,15 +20,13 @@ class LoginInner extends Component {
 
   signIn = () => {
     signup(this.state.input.userName, this.state.input.password).then(
-      (userId) => {
-        if (userId) {
-          this.props.setConnectedUser(userId);
+      (user) => {
+        if (user.id) {
+          this.props.setConnectedUser(user.id);
           this.props.navigation(this.props.homeLink);
-        } else {
-          this.setState({ error: "invalid params" });
         }
       }
-    );
+    ).catch((err)=>this.setState({ error: "invalid params" }));
   };
 
   login = () => {
@@ -37,11 +35,9 @@ class LoginInner extends Component {
         if (user.id) {
           this.props.setConnectedUser(user.id);
           this.props.navigation(this.props.homeLink);
-        } else {
-          this.setState({ error: "user name or password is invalid" });
-        }
+        } 
       }
-    );
+    ).catch((error)=>this.setState({ error: "user name or password is invalid" }))
   };
 
   desplayError() {

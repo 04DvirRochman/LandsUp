@@ -33,13 +33,13 @@ app.get('/api/flights', async (req, res) => {
 });
 
 app.get("/api/flight/:id", async (req, res) => {
-  const id = req.params.id;
-  const flight = await getFlight(id);
-  if (flight.length === 0) {
-    res.status(404).send(`flight ${id} not found`);
-  } else {
-    res.send(flight[0]);
-  }
+	const id = req.params.id;
+	const flight = await getFlight(id);
+	if (flight.length === 0) {
+		res.status(404).send(`flight ${id} not found`);
+	} else {
+		res.send(flight[0]);
+	}
 });
 
 app.get('/api/user', async (req, res) => {
@@ -57,8 +57,8 @@ app.get('/api/subscriptions/:userid', async (req, res) => {
 	const userid = req.params.userid;
 	const filter = req.query;
 	let flightIds = await getUserSubs(userid);
-	flightIds = flightIds.map(element=>element.flightid);
-	let flights = await getFlightsByIds(flightIds,filter)
+	flightIds = flightIds.map(element => element.flightid);
+	let flights = await getFlightsByIds(flightIds, filter)
 	if (!flightIds) {
 		res.status(404).send('invalid user or no flights subscribed');
 	} else {
@@ -81,10 +81,10 @@ app.post('/api/user', async (req, res) => {
 	const newUser = req.body;
 	newUser.id = shortid.generate();
 	if (validateUser(newUser)) {
-		res.send('invalid properties');
-	} else {
 		await createNewUser(newUser);
 		res.send(newUser);
+	} else {
+		res.send('invalid properties');
 	}
 });
 app.post('/api/subscription', async (req, res) => {
@@ -117,8 +117,8 @@ app.delete('/api/subscription', async (req, res) => {
 });
 
 app.listen(PORT, function (err) {
-  if (err) {
-    console.log("Error in server setup");
-  }
-  console.log("Server listening on Port", PORT);
+	if (err) {
+		console.log("Error in server setup");
+	}
+	console.log("Server listening on Port", PORT);
 });
