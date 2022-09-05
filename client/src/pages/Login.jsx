@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PersonalInfoList from "../cmps/PersonalInfoList";
 import LoginInput from "../cmps/LoginInput";
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
@@ -30,8 +29,8 @@ class LoginInner extends Component {
   };
 
   login = () => {
-    login(this.state.input.userName, this.state.input.password).then(
-      (user) => {
+    login(this.state.input.userName, this.state.input.password)
+      .then((user) => {
         if (user.id) {
           this.props.setConnectedUser(user.id);
           this.props.navigation(this.props.homeLink);

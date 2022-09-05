@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
-import FightPreview from './FightPreview'
-import Accordion from 'react-bootstrap/esm/Accordion';
-import Spinner from 'react-bootstrap/Spinner';
-
+import React, { Component } from "react";
+import FightPreview from "./FightPreview";
+import Accordion from "react-bootstrap/esm/Accordion";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function FlightList(props) {
-
-    const { flights, loadingFlights, subscriptions, onClickSubscribe } = props;
-    let flightKeys
-    if (flights.length > 0) {
-        flightKeys = Object.keys(flights[0]);
-    }
+  const { flights, loadingFlights, subscriptions, onClickSubscribe } = props;
+  let flightKeys;
+  if (flights.length > 0) {
+    flightKeys = Object.keys(flights[0]);
+  }
 
 
     return (

@@ -25,10 +25,8 @@ export default class LoginInput extends Component {
     this.props.updateInput(input)
   }
 
-
-
   render() {
-    this.reLoad()
+    this.reLoad();
     return (
       <Container className='px-5'>
         <form>
@@ -46,4 +44,3 @@ export default class LoginInput extends Component {
     )
   }
 }
-
