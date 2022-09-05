@@ -11,6 +11,7 @@ const {
 	createNewUser,
 	createSubscription,
 	deleteSubscription,
+	getFlightsByIds,
 	getSubscription,
 } = require('./queries');
 const { validateFlight, validateUser } = require('./utils');
@@ -52,13 +53,16 @@ app.get('/api/user', async (req, res) => {
 	}
 });
 
-app.get('/api/subscriptions', async (req, res) => {
-	const userid = req.query.userid;
-	const flightIds = await getUserSubs(userid);
-	if (flightIds.length === 0) {
+app.get('/api/subscriptions/:userid', async (req, res) => {
+	const userid = req.params.userid;
+	const filter = req.query;
+	let flightIds = await getUserSubs(userid);
+	flightIds = flightIds.map(element=>element.flightid);
+	let flights = await getFlightsByIds(flightIds,filter)
+	if (!flightIds) {
 		res.status(404).send('invalid user or no flights subscribed');
 	} else {
-		res.send(flightIds);
+		res.send(flights);
 	}
 });
 

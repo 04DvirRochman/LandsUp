@@ -12,7 +12,7 @@ export default class MainWebsite extends Component {
     constructor(){
         super();
         this.state = {
-            connectedUser : '000000'
+            connectedUser : '5y9a00'
         }
     }
 
@@ -27,7 +27,7 @@ export default class MainWebsite extends Component {
             <div>
                 <SiteHeader links={{ Home: "/", About: "/About" }} />
                 <Routes>
-                    <Route path='/' element={<Home />} />
+                    <Route path='/' element={<Home connectedUser={connectedUser}/>} />
                     <Route path='/About' element={<About />} />
                     <Route path='/MyFlights' element={<MyFlights connectedUser={connectedUser}/>} />
                 </Routes>

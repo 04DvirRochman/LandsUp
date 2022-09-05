@@ -26,6 +26,30 @@ const getFlights = async (filter) => {
 	return await sendQuery({ text: text , values: values});
 };
 
+const getFlightsByIds = async (ids,filter) => {
+	let text = "SELECT * FROM t_flights WHERE ";
+	text+=' (';
+	ids.forEach((element,index) => {
+		if(index !== 0){
+			text+=' OR ';
+		}
+		text+=` id='${element}' `;
+	});
+	text+=') ';
+	let values = [];
+	if(filter){
+		if(filter.origin){
+			values.push(filter.origin);
+			text += ' AND origin=$1'
+		}
+		else if(filter.destination){
+			values.push(filter.destination);
+			text += ' AND destination=$1'
+		}
+	}
+	return await sendQuery({ text: text , values: values});
+};
+
 const getFlight = async (id) => {
 	return await sendQuery({ text: 'SELECT * FROM t_flights WHERE id=$1', values: [id] });
 };
@@ -101,4 +125,5 @@ module.exports = {
 	createSubscription,
 	deleteSubscription,
 	getSubscription,
+	getFlightsByIds
 };

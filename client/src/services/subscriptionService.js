@@ -1,8 +1,17 @@
 import APIURL from './utils';
-export const getUserSubs = async (userid) => {
+export const getUserSubs = async (userid,filter) => {
+    let params = new URLSearchParams();
+	if(filter){
+		if(filter.origin){
+			params.set('origin',filter.origin);
+		}
+		else if(filter.destination){
+			params.set('destination',filter.destination);
+		}
+	}
 	try {
-		const result = await fetch(`${APIURL}/api/subscriptions?userid=${userid}`);
-		const arr = result.json();
+		let result = await fetch(`${APIURL}/api/subscriptions/${userid}?${params}`);
+		let arr = await result.json();
 		return arr;
 	} catch (err) {}
 };
