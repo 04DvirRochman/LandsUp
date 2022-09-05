@@ -1,15 +1,15 @@
-'use strict';
-const { connection } = require('./database');
-const Pool = require('pg').Pool;
+"use strict";
+const { connection } = require("./database");
+const Pool = require("pg").Pool;
 
 const sendQuery = async (query) => {
-	try {
-		const con = await connection();
-		const result = await con.query(query);
-		return result.rows;
-	} catch (err) {
-		console.log(err);
-	}
+  try {
+    const con = await connection();
+    const result = await con.query(query);
+    return result.rows;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const getFlights = async (filter) => {
@@ -51,7 +51,10 @@ const getFlightsByIds = async (ids,filter) => {
 };
 
 const getFlight = async (id) => {
-	return await sendQuery({ text: 'SELECT * FROM t_flights WHERE id=$1', values: [id] });
+  return await sendQuery({
+    text: "SELECT * FROM t_flights WHERE id=$1",
+    values: [id],
+  });
 };
 
 const getSubscription = async (userid, flightid) => {

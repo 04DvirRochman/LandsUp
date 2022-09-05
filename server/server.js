@@ -32,14 +32,14 @@ app.get('/api/flights', async (req, res) => {
 	}
 });
 
-app.get('/api/flight/:id', async (req, res) => {
-	const id = req.params.id;
-	const flight = await getFlight(id);
-	if (flight.length === 0) {
-		res.status(404).send(`flight ${id} not found`);
-	} else {
-		res.send(flight[0]);
-	}
+app.get("/api/flight/:id", async (req, res) => {
+  const id = req.params.id;
+  const flight = await getFlight(id);
+  if (flight.length === 0) {
+    res.status(404).send(`flight ${id} not found`);
+  } else {
+    res.send(flight[0]);
+  }
 });
 
 app.get('/api/user', async (req, res) => {
@@ -117,8 +117,8 @@ app.delete('/api/subscription', async (req, res) => {
 });
 
 app.listen(PORT, function (err) {
-	if (err) {
-		console.log('Error in server setup');
-	}
-	console.log('Server listening on Port', PORT);
+  if (err) {
+    console.log("Error in server setup");
+  }
+  console.log("Server listening on Port", PORT);
 });
