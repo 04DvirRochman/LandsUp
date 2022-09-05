@@ -6,7 +6,7 @@ function PersonalInfoList(props) {
       <div className="row">
         {props.info.map((person, index) => {
           return (
-            <div className="col"  key={index} >
+            <div className="col" key={index}>
               <PersonalInfo info={person} />
             </div>
           );
@@ -15,4 +15,4 @@ function PersonalInfoList(props) {
     </div>
   );
 }
-export default PersonalInfoList
+export default PersonalInfoList;

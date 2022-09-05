@@ -1,4 +1,4 @@
-import APIURL from "./utils";
+import { APIURL } from "./utils";
 export const login = async (name, password) => {
   try {
     const result = await fetch(

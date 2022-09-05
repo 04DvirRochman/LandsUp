@@ -13,7 +13,6 @@ export default class SiteHeader extends Component {
       currSite: props.links.Home,
     };
   }
-  // add function that makes buttens darker color when on their specific site
 
   render() {
     return (
