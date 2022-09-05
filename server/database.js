@@ -1,11 +1,11 @@
-'use strict';
-const Pool = require('pg').Pool;
+"use strict";
+const Pool = require("pg").Pool;
 async function connection() {
 	const pool = new Pool({
 		user: 'postgres',
 		host: 'localhost',
 		database: 'postgres',
-		password: 'Aa123456',
+		password: 'pgsql10',
 		port: 5432,
 	});
 	try {
@@ -16,5 +16,5 @@ async function connection() {
 }
 
 module.exports = {
-	connection,
+  connection,
 };
