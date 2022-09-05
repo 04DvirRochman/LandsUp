@@ -74,6 +74,7 @@ const getUserSubs = async (userid) => {
 	});
 };
 const createNewUser = async (user) => {
+	console.log(user);
 	return await sendQuery({
 		text: 'INSERT INTO t_users VALUES($1,$2,$3,CURRENT_TIMESTAMP)',
 		values: [user.id, user.name, user.password],

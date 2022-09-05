@@ -9,6 +9,12 @@ export default class LoginInput extends Component {
           input: props.inputData
         };
       }
+
+      reLoad(){
+        this.state = {
+          input: this.props.inputData
+        };
+      }
     
       handleChange(thingToChange,event){
         const value = event.target.value;
@@ -20,13 +26,15 @@ export default class LoginInput extends Component {
 
 
   render() {
+    this.reLoad()
     return (
         
       <div  className={style.box}>
-        <input type="text" className={style.input}  placeholder="user name"  onChange = {(e)=>this.handleChange("userName",e) } name="userName" value = {this.state.userName}/>
+        <input type="text" className={style.input}  placeholder="user name"  onChange = {(e)=>this.handleChange("userName",e) } name="userName" value = {this.state.input.userName}/>
         <br></br>
-        <input type="text"  className={style.input} placeholder="Password" onChange = {(e)=>this.handleChange("password",e) } name="password" value = {this.state.password}/>
+        <input type="text"  className={style.input} placeholder="Password" onChange = {(e)=>this.handleChange("password",e) } name="password" value = {this.state.input.password}/>
         </div>
     )
   }
 }
+

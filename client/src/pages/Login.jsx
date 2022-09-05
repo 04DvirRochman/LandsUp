@@ -2,49 +2,53 @@ import React, { Component } from "react";
 import PersonalInfoList from "../cmps/PersonalInfoList";
 import LoginInput from "../cmps/LoginInput";
 import Button from "react-bootstrap/esm/Button";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { login, signup } from "../services/userService";
 
-
-export default class Login extends Component {
+class LoginInner extends Component {
   constructor(props) {
     super(props);
     this.state = {
       input: { userName: "", password: "" },
-      error: ""
+      error: "",
     };
   }
 
-  updateInput=(input)=> {
+  updateInput = (input) => {
     this.setState({ input: input });
-   
-  }
-  signUp(){
-  //const history = useHistory();
-  // do thing 
-  //if(res === userExist){ 
-  // this.setState(error userExsiest)
-  //} else {
-  // setConnectedUser(id)
-  //   history.push(this.props.HomePageLink);
-  // }
-  }
+  };
 
+  signIn = () => {
+    signup(this.state.input.userName, this.state.input.password).then(
+      (userId) => {
+        if (userId) {
+          this.props.setConnectedUser(userId);
+          this.props.navigation(this.props.homeLink);
+        } else {
+          this.setState({ error: "invalid params" });
+        }
+      }
+    );
+  };
 
-  login(){
-  //const history = useHistory();
-  // do thing 
-  //if(res === undefined){ 
-  // this.setState(error:true)
-  //}else {
-  // setConnectedUser(id)
-  // history.push(this.props.HomePageLink);
-  //}
-  }
-  
-  desplayError(){
-    if(this.state.error){
-    return(<bold>{this.state.error}</bold>)}else{
-      return(<></>)
+  login = () => {
+    login(this.state.input.userName, this.state.input.password).then(
+      (user) => {
+        if (user.id) {
+          this.props.setConnectedUser(user.id);
+          this.props.navigation(this.props.homeLink);
+        } else {
+          this.setState({ error: "user name or password is invalid" });
+        }
+      }
+    );
+  };
+
+  desplayError() {
+    if (this.state.error) {
+      return <b>{this.state.error}</b>;
+    } else {
+      return <></>;
     }
   }
 
@@ -56,11 +60,22 @@ export default class Login extends Component {
           inputData={this.state.input}
         />
         <div className="mt-2 mb-2">
-        <Button className="mx-2">Sign Up</Button>
-        <Button className="mx-2"> Login In</Button>
+          <Button className="mx-2" onClick={this.signIn}>
+            Sign Up
+          </Button>
+          <Button className="mx-2" onClick={this.login}>
+            {" "}
+            Login
+          </Button>
         </div>
         {this.desplayError()}
       </div>
     );
   }
+}
+
+export default function Login(props) {
+  const navigation = useNavigate();
+
+  return <LoginInner {...props} navigation={navigation} />;
 }

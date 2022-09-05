@@ -62,7 +62,6 @@ export default class Home extends Component {
 
     render() {
         const { flights, loadingFlights } = this.state;
-        console.log(flights);
 
         return (
             <div className='container-sm mt-5'>
