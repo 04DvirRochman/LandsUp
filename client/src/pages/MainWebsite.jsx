@@ -15,7 +15,7 @@ const links = {
   Login: "/Login",
 };
 
-const defaultUser = "000000"
+const defaultUser = "000000";
 
 export default class MainWebsite extends Component {
   constructor() {
@@ -45,7 +45,7 @@ export default class MainWebsite extends Component {
             element={
               <Login
                 setConnectedUser={this.setConnectedUser}
-                homeLink={this.state.links.Home}
+                homeLink={links.Home}
               />
             }
           />
