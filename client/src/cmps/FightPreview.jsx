@@ -7,14 +7,14 @@ import AccordionItem from 'react-bootstrap/esm/AccordionItem';
 
 export default function FightPreview(props) {
 
-  const { flight, eventKey,subscriptions,onClickSubscribe } = props;
+  const { flight,connectedUser, eventKey,subscriptions,onClickSubscribe } = props;
   let flightValues = Object.values(flight);
   return (
     <AccordionItem eventKey={eventKey}>
       <Accordion.Header>
         {flightValues.map((flightValue, index) => { if (index !== 0) { return <h4 key={index} className='tabletext'>{flightValue}</h4> } })}
       </Accordion.Header>
-      <FlightDetails onClickSubscribe={onClickSubscribe} subscriptions={subscriptions} flight={flight} />
+      <FlightDetails connectedUser={connectedUser} onClickSubscribe={onClickSubscribe} subscriptions={subscriptions} flight={flight} />
     </AccordionItem>
   )
 
