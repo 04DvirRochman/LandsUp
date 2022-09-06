@@ -18,7 +18,7 @@ export default function NavBar(props) {
 								Home
 							</NavLink>
 							<NavLink className='nav-link' to={links.MyFlights}>
-								My Flights
+								MyFlights
 							</NavLink>
 							<NavLink className='nav-link' to={links.About}>
 								About

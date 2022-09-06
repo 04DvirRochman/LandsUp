@@ -90,6 +90,39 @@
   position: relative;
 }
 
+@media screen and (min-width: 801px) {
+  .buttontext {
+    font-size: 20px;
+  }
+  .tabletext{
+    font-size: 20px;
+  }
+
+  .detailheader{
+    font-size: 30px;
+  }
+
+  .detailtext{
+    font-size: 20px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 800px) {
+  .buttontext {
+    font-size: 10px;
+  }
+  .tabletext{
+    font-size: 13px;
+  }
+  .detailheader{
+    font-size: 15px;
+  }
+  .detailtext{
+    font-size: 12px;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
