@@ -45,6 +45,42 @@
   overflow: scroll;
 }
 
+.personcard{
+  width: 30vw;
+}
+
+.tabletext{
+  text-align: center;
+  font-size: 2vw;
+  width: 14vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.detailtext{
+  font-size: 2vw;
+  width: 100vw;
+  margin-bottom: 0;
+}
+
+.detailheader{
+  font-size: 3vw;
+  width: 100vw;
+  margin-bottom: 0;
+}
+
+.buttontext{
+  text-align: center;
+  font-size: 2vw;
+  margin: auto;
+}
+
+.tableheader{
+  display: flex;
+  align-content: center;
+  width: 100%;
+}
+
 .textcolor{
   color: rgb(235, 199, 232);
 }

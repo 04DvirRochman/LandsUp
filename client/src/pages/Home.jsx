@@ -84,7 +84,7 @@ export default class Home extends Component {
   };
 
   render() {
-    const { flights, loadingFlights, filteredFlights, subscriptions } =
+    const { flights,connectedUser, loadingFlights, filteredFlights, subscriptions } =
       this.state;
     return (
       <div className="container-sm mt-5">
@@ -94,6 +94,7 @@ export default class Home extends Component {
           flights={flights}
         />
         <FlightList
+          connectedUser={connectedUser}
           onClickSubscribe={this.onClickSubscribe}
           subscriptions={subscriptions}
           flights={filteredFlights}
