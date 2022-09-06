@@ -20,9 +20,15 @@ const defaultUser = '000000';
 export default class MainWebsite extends Component {
 	constructor() {
 		super();
-		this.state = {
-			connectedUser: defaultUser,
-		};
+		if (!localStorage.getItem('userid')) {
+			this.state = {
+				connectedUser: defaultUser,
+			};
+		} else {
+			this.state = {
+				connectedUser: localStorage.getItem('userid'),
+			};
+		}
 	}
 
 	setConnectedUser = (userId) => {
@@ -33,7 +39,11 @@ export default class MainWebsite extends Component {
 		const { connectedUser } = this.state;
 		return (
 			<div className='main-website' style={{ backgroundColor: '#BFACE0' }}>
-				<SiteHeader links={links} connectedUser={this.state.connectedUser} setConnectedUser={this.setConnectedUser} />
+				<SiteHeader
+					links={links}
+					connectedUser={this.state.connectedUser}
+					setConnectedUser={this.setConnectedUser}
+				/>
 				<Routes>
 					<Route path={links.Home} element={<Home connectedUser={connectedUser} />} />
 					<Route path={links.About} element={<About />} />

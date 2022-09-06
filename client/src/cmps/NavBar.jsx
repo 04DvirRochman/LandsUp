@@ -26,7 +26,10 @@ export default function NavBar(props) {
 							<Link
 								className='nav-link'
 								style={{ marginLeft: '52vw' }}
-								onClick={() => setConnectedUser('000000')}
+								onClick={() => {
+									localStorage.removeItem('userid');
+									setConnectedUser('000000');
+								}}
 								to={links.Home}>
 								Logout
 							</Link>
