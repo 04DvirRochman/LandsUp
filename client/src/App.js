@@ -9,7 +9,7 @@ import MainWebsite from './pages/MainWebsite';
 function App() {
   localStorage.setItem("userConnected",'000000');
   return (
-    <div className="App">
+    <div className="App bg-light">
       <MainWebsite/>
     </div>
   );

@@ -45,6 +45,10 @@
   overflow: scroll;
 }
 
+.personcard{
+  width: 30vw;
+}
+
 .tabletext{
   text-align: center;
   font-size: 2vw;
