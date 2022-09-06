@@ -81,6 +81,13 @@
   width: 100%;
 }
 
+.textcolor{
+  color: rgb(235, 199, 232);
+}
+
+.main-website {
+  position: relative;
+}
 
 @keyframes App-logo-spin {
   from {
