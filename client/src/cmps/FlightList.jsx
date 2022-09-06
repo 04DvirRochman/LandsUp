@@ -12,7 +12,7 @@ export default function FlightList(props) {
 
 
     return (
-        <div>
+        <div >
             <div className='bg-dark px-4'>
                 <div className='row '>
                     <h5 className='col text-light text-start'>code</h5>
