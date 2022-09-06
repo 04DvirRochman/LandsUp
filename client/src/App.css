@@ -1,10 +1,6 @@
-
-
-
 .App {
   text-align: center;
   width: 100%;
-  
 }
 
 .App-logo {
@@ -16,6 +12,12 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.page {
+  background-color: #bface0;
+  height: 100vh;
+  width: 100vw;
 }
 
 .App-header {
@@ -33,7 +35,7 @@
   color: #61dafb;
 }
 
-.table-top{
+.table-top {
   padding-right: 20px;
   padding-left: 20px;
   padding-top: 16px;
@@ -41,68 +43,59 @@
   background-color: #282c34;
 }
 
-.scrollable{
-  overflow: scroll;
-}
-
-.personcard{
+.personcard {
   width: 30vw;
 }
 
-.tabletext{
+.tabletext {
   text-align: center;
   font-size: 1.5vw;
   width: 14vw;
   padding-top: 2px;
   margin-bottom: 2px;
-
 }
 
-.detailtext{
+.detailtext {
   font-size: 2vw;
   width: 100vw;
   margin-bottom: 0;
 }
 
-.detailheader{
+.detailheader {
   font-size: 3vw;
   width: 100vw;
   margin-bottom: 0;
 }
 
-.buttontext{
+.buttontext {
   text-align: center;
   font-size: 2vw;
   margin: auto;
 }
 
-.tableheader{
+.tableheader {
   display: flex;
   align-content: center;
   width: 100%;
 }
 
-.textcolor{
+.textcolor {
   color: rgb(235, 199, 232);
-}
-
-.main-website {
-  position: relative;
 }
 
 @media screen and (min-width: 801px) {
   .buttontext {
     font-size: 20px;
   }
-  .tabletext{
+  .tabletext {
     font-size: 20px;
   }
 
-  .detailheader{
+  .detailheader {
     font-size: 30px;
   }
 
-  .detailtext{
+  .detailtext {
     font-size: 20px;
   }
 }
@@ -112,13 +105,13 @@
   .buttontext {
     font-size: 10px;
   }
-  .tabletext{
+  .tabletext {
     font-size: 13px;
   }
-  .detailheader{
+  .detailheader {
     font-size: 15px;
   }
-  .detailtext{
+  .detailtext {
     font-size: 12px;
   }
 }
@@ -133,5 +126,5 @@
 }
 
 body {
-  overflow: hidden; 
+  background-color: "#BFACE0";
 }

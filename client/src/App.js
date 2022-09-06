@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   localStorage.setItem("userConnected", "000000");
   return (
-    <div className="App bg-light">
+    <div className="App main-website">
       <Routes>
         <Route
           path={'/poop'}

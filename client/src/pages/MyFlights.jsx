@@ -79,19 +79,21 @@ export default class MyFlights extends Component {
   render() {
     const { flights, loadingFlights, filteredFlights } = this.state;
     return (
-      <div className="container-sm mt-5">
-        <FlightFilter
-          onSearch={this.onSearch}
-          onSetFilter={this.onSetFilter}
-          flights={flights}
-        />
-        <FlightList
-          onClickSubscribe={this.onClickSubscribe}
-          subscriptions={filteredFlights}
-          flights={filteredFlights}
-          openFilghtDetails={this.openFilghtDetails}
-          loadingFlights={loadingFlights}
-        />
+      <div className="page">
+        <div className="container-sm mt-5">
+          <FlightFilter
+            onSearch={this.onSearch}
+            onSetFilter={this.onSetFilter}
+            flights={flights}
+          />
+          <FlightList
+            onClickSubscribe={this.onClickSubscribe}
+            subscriptions={filteredFlights}
+            flights={filteredFlights}
+            openFilghtDetails={this.openFilghtDetails}
+            loadingFlights={loadingFlights}
+          />
+        </div>
       </div>
     );
   }
