@@ -84,23 +84,30 @@ export default class Home extends Component {
   };
 
   render() {
-    const { flights,connectedUser, loadingFlights, filteredFlights, subscriptions } =
-      this.state;
+    const {
+      flights,
+      connectedUser,
+      loadingFlights,
+      filteredFlights,
+      subscriptions,
+    } = this.state;
     return (
-      <div className="container mt-5">
-        <FlightFilter
-          onSearch={this.onSearch}
-          onSetFilter={this.onSetFilter}
-          flights={flights}
-        />
-        <FlightList
-          connectedUser={connectedUser}
-          onClickSubscribe={this.onClickSubscribe}
-          subscriptions={subscriptions}
-          flights={filteredFlights}
-          openFilghtDetails={this.openFilghtDetails}
-          loadingFlights={loadingFlights}
-        />
+      <div className="page">
+        <div className="container mt-5">
+          <FlightFilter
+            onSearch={this.onSearch}
+            onSetFilter={this.onSetFilter}
+            flights={flights}
+          />
+          <FlightList
+            connectedUser={connectedUser}
+            onClickSubscribe={this.onClickSubscribe}
+            subscriptions={subscriptions}
+            flights={filteredFlights}
+            openFilghtDetails={this.openFilghtDetails}
+            loadingFlights={loadingFlights}
+          />
+        </div>
       </div>
     );
   }

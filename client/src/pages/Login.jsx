@@ -50,7 +50,7 @@ class LoginInner extends Component {
 
 	render() {
 		return (
-			<div className='mt-4'>
+			<div className='mt-4 page'>
 				<LoginInput updateInput={this.updateInput} inputData={this.state.input} />
 				<div className='mt-2 mb-2'>
 					<Button className='mx-2' onClick={this.signUp}>
