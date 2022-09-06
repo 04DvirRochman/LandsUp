@@ -24,18 +24,19 @@ export default class FlightFilter extends Component {
         ></input>
         <Button
           onClick={() => onSetFilter({ origin: "Tel Aviv" })}
-          className="col-2 mx-1"
+          className=" mx-1"
         >
-          Departures
+          <h1 className="buttontext">Departures</h1>
+          
         </Button>
         <Button
           onClick={() => onSetFilter({ destination: "Tel Aviv" })}
-          className="col-2 mx-1"
+          className=" mx-1 tabletext"
         >
-          Arrivals
+          <h1 className="buttontext">Arrivals</h1>
         </Button>
-        <Button onClick={() => onSetFilter({})} className="col-2 mx-1">
-          All
+        <Button onClick={() => onSetFilter({})} className="tabletext mx-1">
+        <h1 className="buttontext">All</h1>
         </Button>
       </div>
     );

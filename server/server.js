@@ -1,7 +1,8 @@
 'use strict';
 const express = require('express');
 const shortid = require('shortid');
-
+require('dotenv').config();
+const config = require('./config')
 const {
   getFlights,
   getFlight,
