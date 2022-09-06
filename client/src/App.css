@@ -53,6 +53,8 @@
   text-align: center;
   font-size: 2vw;
   width: 14vw;
+  padding-top: 2px;
+  margin-bottom: 2px;
   padding-left: 1vw;
   padding-right: 1vw;
 }
