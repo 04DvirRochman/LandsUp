@@ -23,13 +23,13 @@ export default function NavBar(props) {
 							<NavLink className='nav-link' to={links.About}>
 								About
 							</NavLink>
-							<NavLink
+							<Link
 								className='nav-link'
 								style={{ marginLeft: '52vw' }}
 								onClick={() => setConnectedUser('000000')}
 								to={links.Home}>
 								Logout
-							</NavLink>
+							</Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
