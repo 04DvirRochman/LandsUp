@@ -14,7 +14,7 @@ export default function SiteHeader(props) {
           <div className="logo-text"> LandsUp </div>
         </div>
       </div>
-      <NavBar links={props.links} connectedUser={props.connectedUser} />
+      <NavBar links={props.links} connectedUser={props.connectedUser} setConnectedUser={props.setConnectedUser} />
     </div>
   );
 }

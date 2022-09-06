@@ -33,7 +33,7 @@ export default class MainWebsite extends Component {
 		const { connectedUser } = this.state;
 		return (
 			<div className='main-website' style={{ backgroundColor: '#BFACE0' }}>
-				<SiteHeader links={links} connectedUser={this.state.connectedUser} />
+				<SiteHeader links={links} connectedUser={this.state.connectedUser} setConnectedUser={this.setConnectedUser} />
 				<Routes>
 					<Route path={links.Home} element={<Home connectedUser={connectedUser} />} />
 					<Route path={links.About} element={<About />} />

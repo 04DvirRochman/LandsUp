@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router-dom';
 
 export default function NavBar(props) {
-	const { links, connectedUser } = props;
+	const { links, connectedUser, setConnectedUser } = props;
 	if (connectedUser != '000000') {
 		return (
 			<Navbar className='navbar-dark' bg='dark' expand='lg'>
@@ -23,9 +23,13 @@ export default function NavBar(props) {
 							<NavLink className='nav-link' to={links.About}>
 								About
 							</NavLink>
-							<Navbar.Text style={{ marginLeft: '52vw' }} className='align-self-end'>
+							<NavLink
+								className='nav-link'
+								style={{ marginLeft: '52vw' }}
+								onClick={() => setConnectedUser('000000')}
+								to={links.Home}>
 								Logout
-							</Navbar.Text>
+							</NavLink>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
