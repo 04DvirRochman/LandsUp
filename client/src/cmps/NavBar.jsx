@@ -13,7 +13,7 @@ export default function NavBar(props) {
 				<Container>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
-						<Nav className='me-auto'>
+						<Nav className='me-auto d-flex'>
 							<NavLink className='nav-link' to={links.Home}>
 								Home
 							</NavLink>
@@ -23,9 +23,9 @@ export default function NavBar(props) {
 							<NavLink className='nav-link' to={links.About}>
 								About
 							</NavLink>
-							<NavLink className='nav-link' to={links.Login}>
-								Login
-							</NavLink>
+							<Navbar.Text style={{ marginLeft: '52vw' }} className='align-self-end'>
+								Logout
+							</Navbar.Text>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
@@ -44,7 +44,10 @@ export default function NavBar(props) {
 							<NavLink className='nav-link' to={links.About}>
 								About
 							</NavLink>
-							<NavLink className='nav-link' to={links.Login}>
+							<NavLink
+								style={{ marginLeft: '57vw' }}
+								className='nav-link'
+								to={links.Login}>
 								Login
 							</NavLink>
 						</Nav>
