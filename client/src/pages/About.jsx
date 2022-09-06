@@ -24,6 +24,7 @@ export default class About extends Component {
   render() {
     return <div >
     <PersonalInfoList info={personalInfo} />
+    <a className="text-white" href="/poop">to our better site</a>
     </div>;
   }
 }

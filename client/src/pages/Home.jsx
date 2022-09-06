@@ -87,7 +87,7 @@ export default class Home extends Component {
     const { flights,connectedUser, loadingFlights, filteredFlights, subscriptions } =
       this.state;
     return (
-      <div className="container-sm mt-5">
+      <div className="container mt-5">
         <FlightFilter
           onSearch={this.onSearch}
           onSetFilter={this.onSetFilter}

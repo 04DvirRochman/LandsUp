@@ -15,13 +15,13 @@ export default function FlightList(props) {
         <div>
             <div className='bg-dark ps-4 pe-5'>
                 <div className='tableheader'>
-                    <h6 className='text-light tabletext'>code</h6>
-                    <h6 className='text-light tabletext'>origin</h6>
-                    <h6 className='text-light tabletext'>destination</h6>
-                    <h6 className='text-light tabletext'>departure</h6>
-                    <h6 className='text-light tabletext'>arrival</h6>
-                    <h6 className='text-light tabletext'>airline</h6>
-                    <h6 className='text-light tabletext'>terminal</h6>
+                    <h6 className='text-light tabletext'>Code</h6>
+                    <h6 className='text-light tabletext'>Origin</h6>
+                    <h6 className='text-light tabletext'>Destination</h6>
+                    <h6 className='text-light tabletext'>Departure</h6>
+                    <h6 className='text-light tabletext'>Arrival</h6>
+                    <h6 className='text-light tabletext'>Airline</h6>
+                    <h6 className='text-light tabletext'>Terminal</h6>
                 </div>
 
             </div>
