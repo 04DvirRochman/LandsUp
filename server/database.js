@@ -1,12 +1,14 @@
 "use strict";
+const config = require("./config");
+
 const Pool = require("pg").Pool;
 async function connection() {
   const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "postgres",
-    password: "Aa123456",
-    port: 5432,
+    user: config.PGUSER,
+    host: config.PGHOST,
+    database: config.PGDATABASE,
+    password: config.PGPASSWORD,
+    port: config.PGPORT,
   });
   try {
     return pool;

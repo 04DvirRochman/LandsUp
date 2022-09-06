@@ -12,7 +12,7 @@ export default function FightPreview(props) {
   return (
     <AccordionItem eventKey={eventKey}>
       <Accordion.Header>
-        {flightValues.map((flightValue, index) => { if (index !== 0) { return <h4 key={index} className='col tableText'>{flightValue}</h4> } })}
+        {flightValues.map((flightValue, index) => { if (index !== 0) { return <h4 key={index} className='tabletext'>{flightValue}</h4> } })}
       </Accordion.Header>
       <FlightDetails onClickSubscribe={onClickSubscribe} subscriptions={subscriptions} flight={flight} />
     </AccordionItem>

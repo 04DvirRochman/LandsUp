@@ -49,6 +49,26 @@
   width: 30vw;
 }
 
+.tabletext{
+  text-align: center;
+  font-size: 2vw;
+  width: 14vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.buttontext{
+  text-align: center;
+  font-size: 2vw;
+  margin: auto;
+}
+
+.tableheader{
+  display: flex;
+  align-content: center;
+  width: 100%;
+}
+
 
 @keyframes App-logo-spin {
   from {
