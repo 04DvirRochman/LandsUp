@@ -4,17 +4,18 @@ import Container from 'react-bootstrap/Container';
 function PersonalInfoList(props) {
   return (
     <Container className="mt-5">
-      <h4>we mede this website and we are goodddd we mader it with sweat and blood and ather kinds of liquids</h4>
-      <div className="row d-flex justify-content-center">
+      <h4 className = "text-center">We made this website with blood sweat and tears. <br></br> we will win and i am eating shawarma</h4>
+      <div className="d-flex  container">
         {props.info.map((person, index) => {
           return (
-            <div className="col" key={index}>
-              <PersonalInfo info={person} />
-            </div>
+              <PersonalInfo key={index} className = "mt-2 " info={person} />
           );
         })}
       </div>
     </Container>
   );
 }
+
+
+
 export default PersonalInfoList;

@@ -45,6 +45,10 @@
   overflow: scroll;
 }
 
+.personcard{
+  width: 30vw;
+}
+
 
 @keyframes App-logo-spin {
   from {
