@@ -73,6 +73,7 @@ const deleteFlight = async (id) => {
 };
 
 const addFlight = async (flight) => {
+  console.log(flight);
   await sendQuery({
     text: "INSERT INTO t_flights VALUES($1,$2,$3,$4,$5,$6,$7,$8)",
     values: [

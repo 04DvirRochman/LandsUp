@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 
-import SiteHeader from '../cmps/SiteHeader';
-import SiteFooter from '../cmps/SiteFooter';
-import { Route, Routes } from 'react-router-dom';
-import Home from '../pages/Home';
-import About from '../pages/About';
-import MyFlights from '../pages/MyFlights';
-import Login from './Login';
+import SiteHeader from "../cmps/SiteHeader";
+import SiteFooter from "../cmps/SiteFooter";
+import { Route, Routes } from "react-router-dom";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import MyFlights from "../pages/MyFlights";
+import Login from "./Login";
+import Admin from "./Admin";
 
 const links = {
-	Home: '/',
-	About: '/About',
-	MyFlights: '/MyFlights',
-	Login: '/Login',
+  Home: "/",
+  About: "/About",
+  MyFlights: "/MyFlights",
+  Login: "/Login",
+  Admin: "/Admin"
 };
 
 const defaultUser = '000000';
@@ -57,6 +59,10 @@ export default class MainWebsite extends Component {
 						path={links.MyFlights}
 						element={<MyFlights connectedUser={connectedUser} />}
 					/>
+          <Route
+            path={links.Admin}
+            element={<Admin />}
+          />
 				</Routes>
 				<SiteFooter />
 			</div>

@@ -23,6 +23,7 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 const path = require('path');
+const { log } = require('console');
 const pathToClient = path.join(__dirname, '..', 'client/build');
 
 app.use(express.static(pathToClient));
@@ -74,8 +75,10 @@ app.post("/api/user/login", async (req, res) => {
 
 app.post("/api/flight", async (req, res) => {
   const newFlight = req.body;
+  console.log(newFlight);
   newFlight.id = shortid.generate();
   if (validateFlight(newFlight)) {
+    console.log('failed')
     res.send("invalid properties");
   } else {
     await addFlight(newFlight);
