@@ -1,0 +1,70 @@
+CREATE TABLE t_flights (
+id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
+	name VARCHAR NOT NULL,
+	origin VARCHAR NOT NULL,
+	destination VARCHAR NOT NULL,
+	departuretime TIMESTAMP NOT NULL,
+	arrivaltime TIMESTAMP NOT NULL,
+	airline VARCHAR NOT NULL,
+	terminal smallint NOT NULL
+	
+);
+INSERT INTO t_flights
+VALUES ('g25343','TW351', 'Taipei','Tel Aviv','2022-11-05 4:00','2022-11-05 20:00', 'Taiwan Airlines', 9);
+INSERT INTO t_flights
+VALUES ('hrteshgte','LOT921', 'Warsaw','Tel Aviv','2022-11-20 7:00','2022-11-20 10:00', 'LOT Polish Airlines', 5);
+INSERT INTO t_flights
+VALUES ('chingceraje','HK492', 'Tel Aviv','Hong Kong','2022-10-01 14:00','2022-10-02 10:00', 'Hong Kong Airlines', 3);
+INSERT INTO t_flights
+VALUES ('tjeesa','NY254', 'Tel Aviv','New York','2022-11-18 14:00','2022-11-18 20:00', 'United', 3);
+INSERT INTO t_flights
+VALUES ('iwoitejgaoiwh','EZ921', 'Berlin','Tel Aviv','2022-09-15 5:00','2022-09-15 9:00', 'EasyJet', 1);
+INSERT INTO t_flights
+VALUES ('26t2ugwh','BAW165', 'London','Tel Aviv','2022-09-22 8:00','2022-09-22 14:30', 'British Airways', 3);
+INSERT INTO t_flights
+VALUES ('nj34345h','PGT778', 'Tel Aviv','Istanbul','2022-09-22 13:35','2022-09-22 15:40', 'Pegasus Airlines', 3);
+INSERT INTO t_flights
+VALUES ('wnawiojgwajg','ISR890', 'Batumi','Tel Aviv','2022-09-21 15:55','2022-09-21 17:00', 'Israir', 1);
+INSERT INTO t_flights
+VALUES ('hopahawjh','BEL3290', 'Tel Aviv','Brussels','2022-09-16 16:05','2022-09-16 19:45', 'Brussels Airlines', 3);
+INSERT INTO t_flights
+VALUES ('yhaew89','GFA972', 'MANAMA','Tel Aviv','2022-09-20 3:30','2022-09-20 6:00', 'Gulf Air', 2);
+INSERT INTO t_flights
+VALUES ('kljwa4','WZZ4548', 'Tel Aviv','Varna','2022-09-13 9:30','2022-09-13 11:40', 'Wizz Air', 1);
+INSERT INTO t_flights
+VALUES ('oyi3w43','RYR6280', 'Bologna','Tel Aviv','2022-09-12 6:35','2022-09-12 11:00', 'Ryanair', 19);
+INSERT INTO t_flights
+VALUES ('y24ioj','ELY611', 'Tel Aviv','Moscow','2022-09-26 8:00','2022-09-26 13:38', 'El Al', 3);
+INSERT INTO t_flights
+VALUES ('ej4jk4y','BBG692', 'Tel Aviv','Rhodes','2022-09-30 9:00','2022-09-30 12:50', 'Blue Bird Airways', 1);
+INSERT INTO t_flights
+VALUES ('yu53ip','RAM229', 'Tel Aviv','Casablanca','2022-10-3 8:10','2022-10-3 11:50', 'Royal Air Maroc', 3);
+
+
+
+CREATE TABLE t_users (
+id VARCHAR PRIMARY KEY UNIQUE NOT NULL,
+	name VARCHAR UNIQUE NOT NULL,
+	password VARCHAR NOT NULL,
+        createdat TIMESTAMP NOT NULL
+);
+INSERT INTO t_users 
+VALUES('5y9a00','dan','pizza',Current_timestamp);
+INSERT INTO t_users 
+VALUES('kjsdaofjo23','guy','basketball',Current_timestamp);
+INSERT INTO t_users 
+VALUES('kutfw2534','dvir','TORGA',Current_timestamp);
+
+CREATE TABLE t_subscriptions (
+    userid VARCHAR NOT NULL REFERENCES t_users(id),
+	flightID VARCHAR NOT NULL REFERENCES t_flights(id),
+	createdat TIMESTAMP NOT NULL
+);
+INSERT INTO t_subscriptions
+VALUES('5y9a00','chingceraje',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('5y9a00','g25343',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('kjsdaofjo23','g25343',Current_timestamp);
+INSERT INTO t_subscriptions
+VALUES('kutfw2534','hrteshgte',Current_timestamp);
