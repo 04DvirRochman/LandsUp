@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { addFlightToDB } from "../services/flightService";
-import DateTimePicker from 'react-datetime-picker';
+import DateTimePicker from "react-datetime-picker";
+import Form from "react-bootstrap/esm/Form";
+import Container from "react-bootstrap/esm/Container";
+import Button from "react-bootstrap/esm/Button";
 export default class Admin extends Component {
   constructor(props) {
     super(props);
@@ -12,101 +15,101 @@ export default class Admin extends Component {
         destination: "",
         departuretime: "",
         arrivaltime: "",
-        airline:"",
-        terminal:"",
+        airline: "",
+        terminal: "",
       },
     };
   }
-  addFlight=(event)=>{
+  addFlight = (event) => {
     event.preventDefault();
-    addFlightToDB(this.state.flight)
-  }
+    addFlightToDB(this.state.flight);
+  };
   handleFlightDataChange = (thingToChange, event) => {
     const value = event.target.value;
     let flight = { ...this.state.flight };
     flight[thingToChange] = value;
     this.setState({ flight: flight });
   };
-  handeleTimeChange = (thingToChange,value)=>{
+  handeleTimeChange = (thingToChange, value) => {
     console.log(value);
     let flight = { ...this.state.flight };
     flight[thingToChange] = value;
     this.setState({ flight: flight });
-  }
+  };
 
   render() {
     return (
-      <>
-        {/* <form onSubmit={this.delete}>
-          <p>input the Code of the flights that you want to delete</p>
-          <input
-            type="text"
-            onChange={this.handelDeleteFlightInputChange}
-            value={this.state.flightToDelete}
-          />
-          <input type="submit" value="Submit" />
-        </form> */}
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <p>add Flight</p>
+      <div className="page text-white">
+        <Container className="my-5">
+          <h1 className="">Add Flight</h1>
+          <Form
+            className="col align-items-center"
+            onSubmit={(e) => this.addFlight(e)}
+          >
+            <Form.Group className="mt-3">
+              <Form.Label className="">name</Form.Label>
+              <Form.Control
+                className="px-5 w-50 mx-auto"
+                type="text"
+                onChange={(e) => this.handleFlightDataChange("name", e)}
+                value={this.state.flight.name}
+              />
+            </Form.Group>
+            <Form.Group className="mt-3">
+              <Form.Label className="">origin</Form.Label>
+              <Form.Control
+                className="px-5 w-50 mx-auto"
+                type="text"
+                onChange={(e) => this.handleFlightDataChange("origin", e)}
+                value={this.state.flight.origin}
+              />
+            </Form.Group>
+            <Form.Group className="mt-3">
+              <Form.Label className="">destination</Form.Label>
+              <Form.Control
+                className="px-5 w-50 mx-auto"
+                type="text"
+                onChange={(e) => this.handleFlightDataChange("destination", e)}
+                value={this.state.flight.destination}
+              />
+            </Form.Group>
 
-        flight.name,
-      flight.origin,
-      flight.destination,
-      flight.departuretime,
-      flight.arrivaltime,
-      flight.airline,
-      flight.terminal,
-        <form onSubmit={(e)=>this.addFlight(e)}>
-          <p>name</p>
-          <input
-            type="text"
-            onChange={(e) => this.handleFlightDataChange("name", e)}
-            value={this.state.flight.name}
-          />
-          <p>origin</p>
-          <input
-            type="text"
-            onChange={(e) => this.handleFlightDataChange("origin", e)}
-            value={this.state.flight.origin}
-          />
-          <p>destination</p>
-          <input
-            type="text"
-            onChange={(e) => this.handleFlightDataChange("destination", e)}
-            value={this.state.flight.destination}
-          />
-          <p>departuretime</p>
-          <DateTimePicker   onChange={(e) => this.handeleTimeChange("departuretime", e)}
-          value={this.state.flight.departuretime }
+            <p >departuretime</p>
+            <DateTimePicker
+              onChange={(e) => this.handeleTimeChange("departuretime", e)}
+              value={this.state.flight.departuretime}
             />
-        
-          <p>arrivaltime</p>
-          <DateTimePicker   onChange={(e) => this.handeleTimeChange("arrivaltime", e)}
-            value={this.state.flight.arrivaltime}
-           />
-          <p>airline</p>
-          <input
-            type="text"
-            onChange={(e) => this.handleFlightDataChange("airline", e)}
-            value={this.state.flight.airline}
-          />
-          <p>terminal</p>
-          <input
-            type="text"
-            onChange={(e) => this.handleFlightDataChange("terminal", e)}
-            value={this.state.flight.terminal}
-          />
-          <p>this is a butten</p>
-          <input type="submit" value="Submit" />
-        </form>
-      </>
+
+            <p className="">arrivaltime</p>
+            <DateTimePicker
+              onChange={(e) => this.handeleTimeChange("arrivaltime", e)}
+              value={this.state.flight.arrivaltime}
+            />
+            <Form.Group className="mt-3">
+              <Form.Label className="">airline</Form.Label>
+              <Form.Control
+                className="px-5 w-50 mx-auto"
+                type="text"
+                onChange={(e) => this.handleFlightDataChange("airline", e)}
+                value={this.state.flight.airline}
+              />
+            </Form.Group>
+            <Form.Group className="mt-3">
+              <Form.Label className="">terminal</Form.Label>
+              <Form.Control
+                className="px-5 w-50 mx-auto"
+                type="text"
+                onChange={(e) => this.handleFlightDataChange("terminal", e)}
+                value={this.state.flight.terminal}
+              />
+            </Form.Group>
+
+            <Button className="mt-3" type="submit" value="Submit">
+              Submit
+            </Button>
+          </Form>
+        </Container>
+      </div>
     );
   }
 }
