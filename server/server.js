@@ -52,11 +52,11 @@ app.get("/api/subscriptions/:userid", async (req, res) => {
 	const userid = req.params.userid;
 	const filter = req.query;
 	let flightIds = await getUserSubs(userid);
-	flightIds = flightIds.map((element) => element.flightid);
-	let flights = await getFlightsByFlightsIds(flightIds, filter);
   if (!flightIds) {
     res.status(404).send("invalid user or no flights subscribed");
 } else {
+	flightIds = flightIds.map((element) => element.flightid);
+	let flights = await getFlightsByFlightsIds(flightIds, filter);
 	res.send(flights);
 }
 });
