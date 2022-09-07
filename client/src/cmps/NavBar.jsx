@@ -32,7 +32,7 @@ export default function NavBar(props) {
 								}}
                 to={links.Home}
               >
-                hello__{connectedUser}__Logout
+                Logout
               </Link>
             ) : (
               <NavLink
