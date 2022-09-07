@@ -8,8 +8,8 @@ const headerImgLink =
 export default function SiteHeader(props) {
   return (
     <div>
-      <div className="row zero-padding">
-        <div className="container zero-padding position-relative ">
+      <div className="zero-padding">
+        <div className="zero-padding position-relative ">
           <img className="img" src={headerImgLink} alt="site logo" />
           <div className="logo-text"> LandsUp </div>
         </div>
