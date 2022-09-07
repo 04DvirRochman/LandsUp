@@ -78,11 +78,11 @@ app.post("/api/flight", async (req, res) => {
   console.log(newFlight);
   newFlight.id = shortid.generate();
   if (validateFlight(newFlight)) {
-    console.log('failed')
-    res.send("invalid properties");
-  } else {
     await addFlight(newFlight);
     res.send(newFlight);
+  } else {
+    console.log('failed')
+    res.send("invalid properties");
   }
 });
 
