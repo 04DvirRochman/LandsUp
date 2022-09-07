@@ -40,7 +40,7 @@ export default class MainWebsite extends Component {
 	render() {
 		const { connectedUser } = this.state;
 		return (
-			<div className='page' >
+			<div style={{backgroundColor: "#bface0"}} >
 				<SiteHeader
 					links={links}
 					connectedUser={this.state.connectedUser}
