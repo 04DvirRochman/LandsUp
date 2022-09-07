@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 import SiteHeader from "../cmps/SiteHeader";
 import SiteFooter from "../cmps/SiteFooter";
@@ -17,51 +17,55 @@ const links = {
   Admin: "/Admin"
 };
 
-const defaultUser = "000000";
+const defaultUser = '000000';
 
 export default class MainWebsite extends Component {
-  constructor() {
-    super();
-    this.state = {
-      connectedUser: defaultUser,
-    };
-  }
+	constructor() {
+		super();
+		if (!localStorage.getItem('userid')) {
+			this.state = {
+				connectedUser: defaultUser,
+			};
+		} else {
+			this.state = {
+				connectedUser: localStorage.getItem('userid'),
+			};
+		}
+	}
 
-  setConnectedUser = (userId) => {
-    this.setState({ connectedUser: userId });
-  };
+	setConnectedUser = (userId) => {
+		this.setState({ connectedUser: userId });
+	};
 
-  render() {
-    const { connectedUser } = this.state;
-    return (
-      <div>
-        <SiteHeader links={links} />
-        <Routes>
-          <Route
-            path={links.Home}
-            element={<Home connectedUser={connectedUser} />}
-          />
-          <Route path={links.About} element={<About />} />
-          <Route
-            path={links.Login}
-            element={
-              <Login
-                setConnectedUser={this.setConnectedUser}
-                homeLink={links.Home}
-              />
-            }
-          />
-          <Route
-            path={links.MyFlights}
-            element={<MyFlights connectedUser={connectedUser} />}
-          />
+	render() {
+		const { connectedUser } = this.state;
+		return (
+			<div className='page' >
+				<SiteHeader
+					links={links}
+					connectedUser={this.state.connectedUser}
+					setConnectedUser={this.setConnectedUser}
+				/>
+				<Routes>
+					<Route path={links.Home} element={<Home connectedUser={connectedUser} />} />
+					<Route path={links.About} element={<About />} />
+					<Route
+						path={links.Login}
+						element={
+							<Login setConnectedUser={this.setConnectedUser} homeLink={links.Home} />
+						}
+					/>
+					<Route
+						path={links.MyFlights}
+						element={<MyFlights connectedUser={connectedUser} />}
+					/>
           <Route
             path={links.Admin}
             element={<Admin />}
           />
-        </Routes>
-        <SiteFooter />
-      </div>
-    );
-  }
+				</Routes>
+				<SiteFooter />
+			</div>
+		);
+	}
 }

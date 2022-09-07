@@ -8,7 +8,7 @@ const {
   getFlight,
   addFlight,
   deleteFlight,
-  getUserID,
+  getUser,
   getUserSubs,
   createNewUser,
   createSubscription,
@@ -48,27 +48,28 @@ app.get("/api/flight/:id", async (req, res) => {
   }
 });
 
-app.get("/api/user", async (req, res) => {
-  const name = req.query.name;
-  const password = req.query.password;
-  const user = await getUserID(name, password);
-  if (user.length === 0) {
-    res.status(404).send("invalid username or password");
-  } else {
-    res.send(user[0]);
-  }
-});
 
 app.get("/api/subscriptions/:userid", async (req, res) => {
-  const userid = req.params.userid;
-  const filter = req.query;
-  let flightIds = await getUserSubs(userid);
-  flightIds = flightIds.map((element) => element.flightid);
-  let flights = await getFlightsByFlightsIds(flightIds, filter);
+	const userid = req.params.userid;
+	const filter = req.query;
+	let flightIds = await getUserSubs(userid);
   if (!flightIds) {
     res.status(404).send("invalid user or no flights subscribed");
+} else {
+	flightIds = flightIds.map((element) => element.flightid);
+	let flights = await getFlightsByFlightsIds(flightIds, filter);
+	res.send(flights);
+}
+});
+
+app.post("/api/user/login", async (req, res) => {
+  const name = req.body.name;
+  const password = req.body.password;
+  const [user] = await getUser(name, password);
+  if (!user) {
+	res.status(404).send("invalid username or password");
   } else {
-    res.send(flights);
+	res.send(user);
   }
 });
 
@@ -85,7 +86,7 @@ app.post("/api/flight", async (req, res) => {
   }
 });
 
-app.post("/api/user", async (req, res) => {
+app.post("/api/user/signup", async (req, res) => {
   const newUser = req.body;
   newUser.id = shortid.generate();
   if (validateUser(newUser)) {

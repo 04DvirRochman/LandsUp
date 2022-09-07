@@ -22,8 +22,9 @@ const personalInfo = [
 
 export default class About extends Component {
   render() {
-    return <div >
+    return <div className="page">
     <PersonalInfoList info={personalInfo} />
+    <a className="text-white" href="/poop">to our better site</a>
     </div>;
   }
 }

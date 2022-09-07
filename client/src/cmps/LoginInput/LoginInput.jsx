@@ -31,8 +31,8 @@ export default class LoginInput extends Component {
       <Container className='px-5'>
         <form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="username" placeholder="User Name" onChange={(e) => this.handleChange("userName", e)} name="userName" value={this.state.input.userName} />
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="username" placeholder="Username" onChange={(e) => this.handleChange("userName", e)} name="userName" value={this.state.input.userName} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">

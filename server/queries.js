@@ -89,9 +89,9 @@ const addFlight = async (flight) => {
   });
 };
 
-const getUserID = async (name, password) => {
+const getUser = async (name, password) => {
   return await sendQuery({
-    text: "SELECT id FROM t_users WHERE name=$1 and password=$2",
+    text: "SELECT * FROM t_users WHERE name=$1 and password=$2",
     values: [name, password],
   });
 };
@@ -127,7 +127,7 @@ module.exports = {
   getFlight,
   deleteFlight,
   addFlight,
-  getUserID,
+  getUser,
   getUserSubs,
   createNewUser,
   createSubscription,
